@@ -1,0 +1,19 @@
+<div class="container">
+    <table class="table-striped">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Subscription Type</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let sub of subscription">
+                <td>{{ sub.email }}</td>
+                <td>{{ sub.subscription }}</td>
+                <td>{{ sub.password }}</td>
+            </tr>
+        </tbody>
+        <a routerLink="/create-subscription">Back</a>
+    </table>
+</div>

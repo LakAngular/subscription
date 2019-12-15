@@ -1,0 +1,39 @@
+<form [formGroup]="subscriptionForm" class="form" autocomplete="off">
+    <div>
+        <mat-error *ngIf="subscriptionForm.invalid &&  isFormSubmitted">
+            <mat-error *ngFor="let msg of SubscriptionFields | keyvalue"> {{msg.value}}</mat-error>
+        </mat-error>
+        <!-- <div *ngIf="subscriptionForm.invalid &&  isFormSubmitted">
+            <span *ngFor="let msg of SubscriptionFields | keyvalue"> {{msg.value}} </span>
+    </div> -->
+
+    <mat-form-field class="form-element">
+        <input matInput formControlName="email" placeholder="Mail">
+    </mat-form-field>
+    <mat-error *ngIf="(subscriptionForm.get('email').dirty || subscriptionForm.get('email').touched )&& SubscriptionFields.email">
+        {{ SubscriptionFields.email }}
+    </mat-error>
+    <!--<div *ngIf="(subscriptionForm.get('email').dirty || subscriptionForm.get('email').touched )&& SubscriptionFields.email">
+        {{ SubscriptionFields.email }} Div error </div> -->
+
+    <mat-form-field class="form-element">
+        <mat-placeholder>Subscription</mat-placeholder>
+        <mat-select formControlName="subscription">
+            <mat-option *ngFor="let type of subscriptionTypes" [(value)]="type.value">{{type.name}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="form-element" placeholder="Password">
+        <input matInput formControlName="password" type="password" placeholder="Password">
+    </mat-form-field>
+    <mat-error *ngIf="(subscriptionForm.get('password').dirty || subscriptionForm.get('password').touched) && SubscriptionFields.password">
+        {{ SubscriptionFields.password }}
+    </mat-error>
+    <!--<div *ngIf="(subscriptionForm.get('password').dirty || subscriptionForm.get('password').touched) && SubscriptionFields.password">
+        {{ SubscriptionFields.password }}
+    </div> -->
+
+    <button mat-raised-button color="primary" class="btn btn-primary" (click)="saveSubscription()">Submit</button>
+    <button mat-raised-button color='warn' (click)="onClearConfirm()" [disabled]="!subscriptionForm.touched || !subscriptionForm.dirty">Clear</button>
+    </div>
+</form>

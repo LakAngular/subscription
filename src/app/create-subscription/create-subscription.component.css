@@ -1,0 +1,21 @@
+.form {
+    min-width: 350px;
+    max-width: 500px;
+    width: 100%;
+    padding: 5rem;
+}
+
+.form-element {
+    padding: 0px 0px 0px 0px;
+    width: 100%;
+}
+
+.btn {
+    margin: 2rem;
+    padding: 2px;
+}
+
+.div {
+    border-color: yellow;
+    border-width: 10px;
+}
